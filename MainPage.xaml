@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Writely.MainPage"
+             BackgroundImageSource="firstpage.png">
+
+    <ScrollView>
+        
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+
+        
+            <Label
+                Text="Easy. Simple. Minimalist."
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                CharacterSpacing="2.3"
+                Margin="0,50,0,0"
+                FontAttributes="Bold,Italic"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                HeightRequest="50"
+                WidthRequest="581"             
+                VerticalOptions="Start"/>
+
+            <Label
+                Text="Enjoy an easy to use 
+                note-taking app who is designed to make you more 
+                organized."
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                Margin="0,200,0,50"
+                FontAttributes="None"
+                FontSize="18"
+                TextColor="Black"
+                LineHeight="2"
+                HeightRequest="100"
+                WidthRequest="300"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Let's go"
+                
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
