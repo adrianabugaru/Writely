@@ -26,9 +26,7 @@
                 VerticalOptions="Start"/>
 
             <Label
-                Text="Enjoy an easy to use 
-                note-taking app who is designed to make you more 
-                organized."
+                Text="Enjoy an easy to use note-taking app who is designed to make you more organized."
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 Margin="0,200,0,50"
@@ -36,7 +34,7 @@
                 FontSize="18"
                 TextColor="Black"
                 LineHeight="2"
-                HeightRequest="100"
+                HeightRequest="150"
                 WidthRequest="300"
                 HorizontalOptions="Center" />
 

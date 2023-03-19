@@ -2,9 +2,9 @@
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    public App()
+    {
+        InitializeComponent();
 
         //MainPage = new AppShell();
 
@@ -24,3 +24,4 @@ public partial class App : Application
         }
     }
 }
+
