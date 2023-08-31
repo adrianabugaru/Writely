@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Writely.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var connection = @"Server=localhost\SQLEXPRESS;Database=WritelyDb;Trusted_Connection=True;ConnectRetryCount=0";
+builder.Services.AddDbContext<WritelyContext>(options =>
+    options.UseSqlServer(connection));
 
 var app = builder.Build();
 
