@@ -1,0 +1,35 @@
+﻿body {
+    background: url("/Images/writelyPage.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.introMessage{
+    font-family: 'Roboto Mono', monospace;
+    padding:10px;
+}
+
+.descr {
+    font-family: 'Roboto Mono', monospace;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    padding-right: 490px;
+    padding-left:490px;
+}
+
+.letsgoBtn {
+    padding: 25px;
+    background-color: #dfcfa8;
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    border: 0;
+    border-radius: 40px;
+    outline: none;
+    cursor: pointer;
+    width: 200px;
+    margin: 20px auto 0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
+}
+}
