@@ -9,88 +9,88 @@ using Writely.Models;
 
 namespace Writely.Controllers
 {
-    public class NotebooksController : Controller
+    public class QuickNotesController : Controller
     {
         private readonly WritelyContext _context;
 
-        public NotebooksController(WritelyContext context)
+        public QuickNotesController(WritelyContext context)
         {
             _context = context;
         }
 
-        // GET: Notebooks
+        // GET: QuickNotes
         public async Task<IActionResult> Index()
         {
-              return _context.Notebooks != null ? 
-                          View(await _context.Notebooks.ToListAsync()) :
-                          Problem("Entity set 'WritelyContext.Notebooks'  is null.");
+              return _context.QuickNotes != null ? 
+                          View(await _context.QuickNotes.ToListAsync()) :
+                          Problem("Entity set 'WritelyContext.QuickNotes'  is null.");
         }
 
-        // GET: Notebooks/Details/5
+        // GET: QuickNotes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Notebooks == null)
+            if (id == null || _context.QuickNotes == null)
             {
                 return NotFound();
             }
 
-            var notebook = await _context.Notebooks
-                .FirstOrDefaultAsync(m => m.NotebookId == id);
-            if (notebook == null)
+            var quickNote = await _context.QuickNotes
+                .FirstOrDefaultAsync(m => m.QuickNoteId == id);
+            if (quickNote == null)
             {
                 return NotFound();
             }
 
-            return View(notebook);
+            return View(quickNote);
         }
 
-        // GET: Notebooks/Create
+        // GET: QuickNotes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Notebooks/Create
+        // POST: QuickNotes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NotebookId,NotebookName")] Notebook notebook)
+        public async Task<IActionResult> Create([Bind("QuickNoteId,QuickNoteName")] QuickNote quickNote)
         {
             if (ModelState.IsValid)
             {
-                notebook.CreatedTime = DateTime.Now;
-                _context.Add(notebook);
+                quickNote.CreatedTime = DateTime.Now;
+                _context.Add(quickNote);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Documents");
+                return RedirectToAction("Index","Documents");
             }
-            return View(notebook);
+            return View(quickNote);
         }
 
-        // GET: Notebooks/Edit/5
+        // GET: QuickNotes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Notebooks == null)
+            if (id == null || _context.QuickNotes == null)
             {
                 return NotFound();
             }
 
-            var notebook = await _context.Notebooks.FindAsync(id);
-            if (notebook == null)
+            var quickNote = await _context.QuickNotes.FindAsync(id);
+            if (quickNote == null)
             {
                 return NotFound();
             }
-            return View(notebook);
+            return View(quickNote);
         }
 
-        // POST: Notebooks/Edit/5
+        // POST: QuickNotes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NotebookId,NotebookName")] Notebook notebook)
+        public async Task<IActionResult> Edit(int id, [Bind("QuickNoteId,QuickNoteName")] QuickNote quickNote)
         {
-            if (id != notebook.NotebookId)
+            if (id != quickNote.QuickNoteId)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace Writely.Controllers
             {
                 try
                 {
-                    _context.Update(notebook);
+                    _context.Update(quickNote);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NotebookExists(notebook.NotebookId))
+                    if (!QuickNoteExists(quickNote.QuickNoteId))
                     {
                         return NotFound();
                     }
@@ -113,51 +113,51 @@ namespace Writely.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index", "Documents");
+                return RedirectToAction("Index", "Documents"); 
             }
-            return View(notebook);
+            return View(quickNote);
         }
 
-        // GET: Notebooks/Delete/5
+        // GET: QuickNotes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Notebooks == null)
+            if (id == null || _context.QuickNotes == null)
             {
                 return NotFound();
             }
 
-            var notebook = await _context.Notebooks
-                .FirstOrDefaultAsync(m => m.NotebookId == id);
-            if (notebook == null)
+            var quickNote = await _context.QuickNotes
+                .FirstOrDefaultAsync(m => m.QuickNoteId == id);
+            if (quickNote == null)
             {
                 return NotFound();
             }
 
-            return View(notebook);
+            return View(quickNote);
         }
 
-        // POST: Notebooks/Delete/5
+        // POST: QuickNotes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Notebooks == null)
+            if (_context.QuickNotes == null)
             {
-                return Problem("Entity set 'WritelyContext.Notebooks'  is null.");
+                return Problem("Entity set 'WritelyContext.QuickNotes'  is null.");
             }
-            var notebook = await _context.Notebooks.FindAsync(id);
-            if (notebook != null)
+            var quickNote = await _context.QuickNotes.FindAsync(id);
+            if (quickNote != null)
             {
-                _context.Notebooks.Remove(notebook);
+                _context.QuickNotes.Remove(quickNote);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Documents");
         }
 
-        private bool NotebookExists(int id)
+        private bool QuickNoteExists(int id)
         {
-          return (_context.Notebooks?.Any(e => e.NotebookId == id)).GetValueOrDefault();
+          return (_context.QuickNotes?.Any(e => e.QuickNoteId == id)).GetValueOrDefault();
         }
     }
 }

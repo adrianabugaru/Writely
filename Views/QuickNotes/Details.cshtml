@@ -1,4 +1,4 @@
-﻿@model Writely.Models.Notebook
+﻿@model Writely.Models.QuickNote
 
 @{
     ViewData["Title"] = "Details";
@@ -7,18 +7,18 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Notebook</h4>
+    <h4>QuickNote</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NotebookName)
+            @Html.DisplayNameFor(model => model.QuickNoteName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NotebookName)
+            @Html.DisplayFor(model => model.QuickNoteName)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.NotebookId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.QuickNoteId">Edit</a> |
     <a asp-action="Index" asp-controller="Documents">Back to List</a>
 </div>

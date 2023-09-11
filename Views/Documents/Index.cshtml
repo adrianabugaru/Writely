@@ -1,0 +1,78 @@
+﻿@model Writely.Models.AllDocument
+@{
+    ViewData["Title"] = "AllDocuments";
+}
+
+
+<link rel="stylesheet" href="~/css/notebooksStyle.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+<body>
+    <div class="container">
+        <!-- Wrap your content in a Bootstrap container -->
+        <h1>All Documents</h1>
+        <div class="dropdown">
+            <button class="btn custom-btn-color" type="button" data-toggle="dropdown">
+                Create <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <ul class="text-right dropdown-menu">
+                <li><a asp-action="Create" asp-controller="QuickNotes" asp-route-documentType="QuickNote">Quick Note</a></li>
+                <li><a asp-action="Create" asp-controller="Notebooks" asp-route-documentType="Notebook">Notebook</a></li>
+            </ul>
+        </div>
+        <br />
+
+        <h3>Quick Notes</h3>
+        <div class="row g-4">
+            <!-- Use your custom grid here -->
+            @if (Model.QuickNotes != null)
+            {
+                @foreach (var quickNote in Model.QuickNotes)
+                {
+                    <div class="col-md-3">
+                        <div class="item-box">
+                            <a class="itemName" asp-action="Details" asp-controller="QuickNotes" asp-route-id="@quickNote.QuickNoteName">@Html.DisplayFor(modelItem => @quickNote.QuickNoteName)</a>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-action="Edit" asp-controller="QuickNotes" asp-route-id="@quickNote.QuickNoteId">Edit</a></li>
+                                    <li><a asp-action="Delete" asp-controller="QuickNotes" asp-route-id="@quickNote.QuickNoteId">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <h3>Notebooks</h3>
+        <div class="row g-4">
+            <!-- Use your custom grid here -->
+            @if (Model.Notebooks != null)
+            {
+                @foreach (var notebook in Model.Notebooks)
+                {
+                    <div class="col-md-3">
+                        <div class="item-box">
+                            <a class="itemName" asp-action="Details" asp-controller="Notebooks" asp-route-id="@notebook.NotebookName">@Html.DisplayFor(modelItem => @notebook.NotebookName)</a>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-action="Edit" asp-controller="Notebooks" asp-route-id="@notebook.NotebookId">Edit</a></li>
+                                    <li><a asp-action="Delete" asp-controller="Notebooks" asp-route-id="@notebook.NotebookId">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</body>
