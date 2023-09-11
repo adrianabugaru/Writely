@@ -35,7 +35,7 @@
                 {
                     <div class="col-md-3">
                         <div class="item-box">
-                            <a class="itemName" asp-action="Details" asp-controller="QuickNotes" asp-route-id="@quickNote.QuickNoteName">@Html.DisplayFor(modelItem => @quickNote.QuickNoteName)</a>
+                            <a class="itemName" asp-action="Details" asp-controller="QuickNotes" asp-route-id="@quickNote.QuickNoteId">@Html.DisplayFor(modelItem => @quickNote.QuickNoteName)</a>
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
                                 </button>
@@ -59,7 +59,7 @@
                 {
                     <div class="col-md-3">
                         <div class="item-box">
-                            <a class="itemName" asp-action="Details" asp-controller="Notebooks" asp-route-id="@notebook.NotebookName">@Html.DisplayFor(modelItem => @notebook.NotebookName)</a>
+                            <a class="itemName" asp-action="Details" asp-controller="Notebooks" asp-route-id="@notebook.NotebookId">@Html.DisplayFor(modelItem => @notebook.NotebookName)</a>
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
                                 </button>
